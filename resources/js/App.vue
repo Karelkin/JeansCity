@@ -67,7 +67,7 @@
         created() {
             this.categoriesIndex()
             this.attributesIndex()
-            this.attributesStore(this.storeAttrTest)
+            // this.attributesStore(this.storeAttrTest)
             // this.categoriesUpdate(3, this.updateCatTest)
             // this.categoriesDestroy(29)
             // this.categoriesStore(this.storeCatTest)

@@ -5,7 +5,8 @@ export default {
     state: {
         list: [],
         item: {},
-        message: null
+        message: null,
+        types: {}
     },
     getters: {
         item(state) {
@@ -16,6 +17,9 @@ export default {
         },
         message(state) {
             return state.message
+        },
+        types(state) {
+            return state.types
         }
     },
     mutations: {
@@ -27,15 +31,18 @@ export default {
         },
         getMessage(state, payload) {
             return state.message = payload
+        },
+        getTypes(state, payload) {
+            return state.types = payload
         }
     },
     actions: {
         index(context) {
             return new Promise ((resolve, reject) => {
                 API.get(`attributes/`)
-                    .then(attributes => {
-                        context.commit('getAttributes', attributes.data.data)
-                        resolve(attributes)
+                    .then(response => {
+                        context.commit('getAttributes', response.data.data)
+                        resolve(response)
                     })
                     .catch(error => {
                         reject(error)
@@ -45,9 +52,9 @@ export default {
         show({commit}, id) {
             return new Promise ((resolve, reject) => {
                 API.get(`attributes/${id}`)
-                    .then(attribute => {
-                        commit('getAttribute', attribute.data.data)
-                        resolve(attribute)
+                    .then(response => {
+                        commit('getAttribute', response.data.data)
+                        resolve(response)
                     })
                     .catch(error => {
                         reject(error)
@@ -70,10 +77,10 @@ export default {
         update({commit}, id, updateItem) {
             return new Promise ((resolve, reject) => {
                 API.put(`attributes/${id}`, updateItem)
-                    .then(attribute => {
-                        commit('getAttribute', attribute.data.data)
-                        commit('getMessage', attribute.data.message)
-                        resolve(attribute)
+                    .then(response => {
+                        commit('getAttribute', response.data.data)
+                        commit('getMessage', response.data.message)
+                        resolve(response)
                     })
                     .catch(error => {
                         reject(error)
@@ -83,10 +90,22 @@ export default {
         destroy({commit}, id) {
             return new Promise ((resolve, reject) => {
                 API.delete(`attribute/${id}`)
-                    .then(attribute => {
-                        commit('getAttribute', attribute.data.data)
-                        commit('getMessage', attribute.data.message)
-                        resolve(attribute)
+                    .then(response => {
+                        commit('getAttribute', response.data.data)
+                        commit('getMessage', response.data.message)
+                        resolve(response)
+                    })
+                    .catch(error => {
+                        reject(error)
+                    })
+            })
+        },
+        types({commit}) {
+            return new Promise ((resolve, reject) => {
+                API.get('/attributes/types')
+                    .then(response => {
+                        commit('getTypes', response.data.data)
+                        resolve(response)
                     })
                     .catch(error => {
                         reject(error)

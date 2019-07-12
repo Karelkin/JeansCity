@@ -49,7 +49,8 @@
                 categories: 'categories/list',
                 category: 'categories/item',
                 attributes: 'attributes/list',
-                attribute: 'attributes/item'
+                attribute: 'attributes/item',
+                types: 'attributes/types'
             })
         },
         methods: {
@@ -61,12 +62,14 @@
                 categoriesDestroy: 'categories/destroy',
                 attributesIndex: 'attributes/index',
                 attributesShow: 'attributes/show',
-                attributesStore: 'attributes/store'
+                attributesStore: 'attributes/store',
+                attributesTypes: 'attributes/types'
             })
         },
         created() {
             this.categoriesIndex()
             this.attributesIndex()
+            this.attributesTypes()
             // this.attributesStore(this.storeAttrTest)
             // this.categoriesUpdate(3, this.updateCatTest)
             // this.categoriesDestroy(29)

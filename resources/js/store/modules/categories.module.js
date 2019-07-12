@@ -33,9 +33,9 @@ export default {
         index(context) {
             return new Promise((resolve, reject) => {
                 API.get(`categories/`)
-                    .then(categories => {
-                        context.commit('getCategories', categories.data.data)
-                        resolve(categories)
+                    .then(response => {
+                        context.commit('getCategories', response.data.data)
+                        resolve(response)
                     })
                     .catch(error=>{
                         reject(error)
@@ -45,9 +45,9 @@ export default {
         show({commit}, id) {
             return new Promise((resolve, reject) => {
                 API.get(`categories/${id}`)
-                    .then(category => {
-                        commit('getCategory', category.data.data)
-                        resolve(category)
+                    .then(response => {
+                        commit('getCategory', response.data.data)
+                        resolve(response)
                     })
                     .catch(error=>{
                         reject(error)
@@ -86,9 +86,9 @@ export default {
         destroy({commit}, id) {
             return new Promise((resolve, reject) => {
                 API.delete(`categories/${id}`)
-                    .then(category => {
-                        commit('getCategory', category.data.data)
-                        resolve(category)
+                    .then(response => {
+                        commit('getCategory', response.data.data)
+                        resolve(response)
                     })
                     .catch(error => {
                         reject(error)

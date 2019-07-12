@@ -33,9 +33,9 @@ export default {
         index(context, idAttr) {
             return new Promise ((resolve, reject) => {
                 API.get(`attributes/${idAttr}/values/`)
-                    .then(values => {
-                        context.commit('getValues', values.data.data)
-                        resolve(values)
+                    .then(response => {
+                        context.commit('getValues', response.data.data)
+                        resolve(response)
                     })
                     .catch(error => {
                         reject(error)
@@ -45,9 +45,9 @@ export default {
         show({commit}, idAttr, idVal) {
             return new Promise ((resolve, reject) => {
                 API.get(`attributes/${idAttr}/values/${idVal}`)
-                    .then(value => {
-                        commit('getValue', value.data.data)
-                        resolve(value)
+                    .then(response => {
+                        commit('getValue', response.data.data)
+                        resolve(response)
                     })
                     .catch(error => {
                         reject(error)
@@ -57,10 +57,10 @@ export default {
         store({commit}, idAttr, newItem) {
             return new Promise ((resolve, reject) => {
                 API.post(`attribute/${idAttr}/values/`, newItem)
-                    .then(value => {
-                        commit('getValue', value.data.data)
-                        commit('getMessage', value.data.message)
-                        resolve(value)
+                    .then(response => {
+                        commit('getValue', response.data.data)
+                        commit('getMessage', response.data.message)
+                        resolve(response)
                     })
                     .catch(error => {
                         reject(error)
@@ -70,10 +70,10 @@ export default {
         update({commit}, idAttr, idVal, updateItem) {
             return new Promise ((resolve, reject) => {
                 API.put(`attribute/${idAttr}/values/${idVal}`, updateItem)
-                    .then(value => {
-                        commit('getValue', value.data.data)
-                        commit('getMessage', value.data.message)
-                        resolve(value)
+                    .then(response => {
+                        commit('getValue', response.data.data)
+                        commit('getMessage', response.data.message)
+                        resolve(response)
                     })
                     .catch(error => {
                         reject(error)
@@ -83,10 +83,10 @@ export default {
         destroy({commit}, idAttr, idVal) {
             return new Promise ((resolve, reject) => {
                 API.delete(`attribute/${idAttr}/values/${idVal}`)
-                    .then(value => {
-                        commit('getValue', value.data.data)
-                        commit('getMessage', value.data.message)
-                        resolve(value)
+                    .then(response => {
+                        commit('getValue', response.data.data)
+                        commit('getMessage', response.data.message)
+                        resolve(response)
                     })
                     .catch(error => {
                         reject(error)

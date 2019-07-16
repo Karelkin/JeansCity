@@ -85,7 +85,6 @@ export default {
                 API.delete(`attribute/${idAttr}/values/${idVal}`)
                     .then(response => {
                         commit('getValue', response.data.data)
-                        commit('getMessage', response.data.message)
                         resolve(response)
                     })
                     .catch(error => {

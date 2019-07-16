@@ -85,7 +85,6 @@ export default {
                 API.delete(`mails/${id}`)
                     .then(response => {
                         commit('getMail', response.data.data)
-                        commit('getMessage', response.data.message)
                         resolve(response)
                     })
                     .catch(error => {

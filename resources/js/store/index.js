@@ -8,6 +8,11 @@ import FaqsModule from './modules/faqs.module'
 import HomeslidesModule from './modules/homeslides.module'
 import MailsModule from './modules/mails.module'
 import ShippingsModule from './modules/shippings.module'
+// import UsersModule from './modules/users.module'
+// import ProductsModule from './modules/products.module'
+import CallbacksModule from './modules/callbacks.module'
+import CustomersModule from './modules/customers.module'
+
 
 Vue.use(Vuex)
 
@@ -33,6 +38,18 @@ export default new Vuex.Store({
         },
         shippings: {
             ...ShippingsModule
+        },
+        /*users: {
+            ...UsersModule
+        },
+        products: {
+            ...ProductsModule
+        },*/
+        callbacks: {
+            ...CallbacksModule
+        },
+        customers: {
+            ...CustomersModule
         }
     }
 })

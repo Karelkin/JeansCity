@@ -85,7 +85,6 @@ export default {
                 API.delete(`homeslides/${id}`)
                     .then(response => {
                         commit('getHomeslide', response.data.data)
-                        commit('getMessage', response.data.message)
                         resolve(response)
                     })
                     .catch(error => {

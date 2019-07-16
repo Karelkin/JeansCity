@@ -1,7 +1,7 @@
 <template>
-    <div>
-        yyy
-    </div>
+    <v-app>
+
+    </v-app>
 </template>
 
 <script>
@@ -63,27 +63,38 @@
                 attributesIndex: 'attributes/index',
                 attributesShow: 'attributes/show',
                 attributesStore: 'attributes/store',
+                attributesUpdate: 'attributes/update',
                 attributesTypes: 'attributes/types'
             })
         },
         created() {
             this.categoriesIndex()
-            this.attributesIndex()
-            this.attributesTypes()
+            // this.attributesIndex()
+            // this.attributesTypes()
             // this.attributesStore(this.storeAttrTest)
-            // this.categoriesUpdate(3, this.updateCatTest)
+            // this.categoriesUpdate(5, this.updateCatTest)
+            // console.log(this.message)
             // this.categoriesDestroy(29)
             // this.categoriesStore(this.storeCatTest)
             // this.attributesShow(3)
             // this.categoriesShow(3)
 
             // console.log(this.category)
-            console.log(this.categories)
-            console.log(this.attributes)
+            // console.log(this.attributesTypes())
+            // console.log(this.categoriesIndex())
+            // console.log(this.attributes)
         }
     }
 </script>
 
 <style>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
 
+    html {
+        font-size: 100%;
+    }
 </style>

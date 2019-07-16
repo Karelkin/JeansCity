@@ -83,6 +83,7 @@ export default {
                         resolve(response)
                     })
                     .catch(error => {
+                        commit('getMessage', error.data.message)
                         reject(error)
                     })
             })
@@ -92,7 +93,6 @@ export default {
                 API.delete(`attribute/${id}`)
                     .then(response => {
                         commit('getAttribute', response.data.data)
-                        commit('getMessage', response.data.message)
                         resolve(response)
                     })
                     .catch(error => {

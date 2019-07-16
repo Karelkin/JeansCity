@@ -85,7 +85,6 @@ export default {
                 API.delete(`shippings/${id}`)
                     .then(response => {
                         commit('getShipping', response.data.data)
-                        commit('getMessage', response.data.message)
                         resolve(response)
                     })
                     .catch(error => {
